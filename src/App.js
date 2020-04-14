@@ -29,11 +29,11 @@ function App() {
     const response = await api.delete(`/repositories/${id}`)
 
     if (response.status === 204) {
-      const repositorieIndex = [...repositories].findIndex(repository => repository.id === id)
+      const repositoryIndex = [...repositories].findIndex(repository => repository.id === id)
 
-      if(repositorieIndex > -1) {
+      if(repositoryIndex > -1) {
         let newRepositories = [...repositories]
-        newRepositories.splice(repositorieIndex, 1);
+        newRepositories.splice(repositoryIndex, 1);
         setRepositories([...newRepositories]);
       }
       
