@@ -20,16 +20,16 @@ function App() {
       likes: 0 
     });
     
-    const repositorie = response.data;
+    const repository = response.data;
 
-    setRepositories([...repositories, repositorie]);
+    setRepositories([...repositories, repository]);
   }
 
   async function handleRemoveRepository(id) {
     const response = await api.delete(`/repositories/${id}`)
 
     if (response.status === 204) {
-      const repositorieIndex = [...repositories].findIndex(repositorie => repositorie.id === id)
+      const repositorieIndex = [...repositories].findIndex(repository => repository.id === id)
 
       if(repositorieIndex > -1) {
         let newRepositories = [...repositories]
@@ -43,9 +43,9 @@ function App() {
   return (
     <div>
       <ul data-testid="repository-list">
-        {repositories.map(repositorie => <li key={repositorie.id}>
-          { repositorie.title }
-          <button onClick={() => handleRemoveRepository(repositorie.id)}>
+        {repositories.map(repository => <li key={repository.id}>
+          { repository.title }
+          <button onClick={() => handleRemoveRepository(repository.id)}>
             Remover
           </button>
         </li>)}
